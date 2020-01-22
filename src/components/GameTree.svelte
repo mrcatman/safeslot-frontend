@@ -2,7 +2,7 @@
     import gameStates from '../gameStates.js';
     import { treeObject, state } from '../stores.js';
     import { fade } from 'svelte/transition';
-
+      $: hide = [ gameStates.STATE_SHOWING_WON_SUM, gameStates.STATE_NOT_STARTED, gameStates.STATE_STARTING, gameStates.STATE_KICKED_FOR_INACTIVITY].indexOf($state) !== -1;
 </script>
 <style>
     .tree {
@@ -36,7 +36,7 @@
 
 </style>
 <div class="tree-container">
-    {#if $treeObject}
+    {#if $treeObject && !hide}
     <div class="tree" transition:fade>
         {#each $treeObject as sum}
         <div class="sum" class:current={sum.current} class:safetynet={sum.safetyNet}>

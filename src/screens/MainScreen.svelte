@@ -5,12 +5,16 @@
     import GameTree from "../components/GameTree.svelte";
 </script>
 <style>
-
+.main-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
 </style>
 <div class="main-screen">
     <PlayerInfo/>
     <GameTree/>
     <GameField/>
     <Hints/>
-
 </div>
